@@ -3,11 +3,16 @@ package main
 import "fmt"
 
 func main() {
-	var name, password string = "Amazon","1234"
+
+	credentialNames := [][]string{
+		{"Amazon","EasyPassowrd"},{"American Express","American5577"},
+	}
+
+	fmt.Println(credentialNames)
 
 	// Iterate through array of items
-	for i := 0; i < 2; i++ {
-		fmt.Println(i+1,"Name:",name)
-		fmt.Println("Password:",password)	
+	for i := 0; i < len(credentialNames); i++ {
+		fmt.Println(i+1,"Name:",credentialNames[i][0])
+		fmt.Println("Password:",credentialNames[i][1])	
 	}
 }
