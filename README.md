@@ -1,2 +1,3 @@
 # go-password-manager-webapp
-This is a password manager made with Go that is also web app GUI
+
+Password Manager project that is made with Go. Backend logic is seperated allowing there to be a GUI and a CLI

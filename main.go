@@ -4,15 +4,15 @@ import "fmt"
 
 func main() {
 
-	credentialNames := [][]string{
+	// This is mostly testing and iterating through my mistakes. I'm trying to learn Go while making this project
+
+	credentials := [][]string{
 		{"Amazon","EasyPassowrd"},{"American Express","American5577"},
 	}
 
-	fmt.Println(credentialNames)
-
 	// Iterate through array of items
-	for i := 0; i < len(credentialNames); i++ {
-		fmt.Println(i+1,"Name:",credentialNames[i][0])
-		fmt.Println("Password:",credentialNames[i][1])	
+	for i := range credentials {
+		fmt.Println(i+1,"Name:",credentials[i][0])
+		fmt.Println("Password:",credentials[i][1])	
 	}
 }
