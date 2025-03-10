@@ -1,6 +1,6 @@
 # go-password-manager-webapp
 
-Password Manager project that is made with Go. Backend logic is seperated allowing there to be a GUI and a CLI
+Simple Password Manager project that is made with Go. 
 
 Project is currerently a work in progress
 
@@ -8,4 +8,5 @@ Project is currerently a work in progress
  - Try out Password Managers
  - Make a list of core features
  - Make Sprint Goals
- - 
+ - Who, what when of password managers
+ - Product Specification doc of project
