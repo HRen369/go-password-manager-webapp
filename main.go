@@ -20,25 +20,43 @@ var testUser1 = Credential{
 
 var siteCredentials = []Credential{testUser1}
 
-// Main Logic for Console App
+// Helper Functions
 func getSite() int {
+	fmt.Printf("> ")
 	var option string
 	fmt.Scan(&option)
 
 	choiceInt, err := strconv.Atoi(option)
 
-	if err != nil || choiceInt >= len(siteCredentials) {
+	if err != nil || choiceInt >= len(siteCredentials)+1 || choiceInt <= 0 {
 		return -1
 	}
 
-	return choiceInt
+	return choiceInt - 1
 }
 
+// Console App Helper Functions
+func iterateCredentialsSites() {
+	for i, userCredential := range siteCredentials {
+		fmt.Printf("[%d] %s\n", i+1, userCredential.siteName)
+	}
+}
+
+// Console App Functions
 func viewLogins() {
 	fmt.Println("-- View Logins -- ")
 
-	for i, userCredential := range siteCredentials {
-		fmt.Printf("[%d] %s %s %s\n", i+1, userCredential.siteName, userCredential.username, userCredential.passwordUnencrypted)
+	if len(siteCredentials) <= 0{
+		fmt.Println("-- No Sites Stored --")
+	}else{
+		iterateCredentialsSites()
+
+		choice := getSite()
+		if choice >= 0{
+			fmt.Printf("%s\n", siteCredentials[choice].siteName)
+		}else{
+			fmt.Println("-- Not a Valid Index --")
+		}
 	}
 }
 
