@@ -44,9 +44,26 @@ func viewLogins() {
 
 func addLogins() {
 	fmt.Println("-- Add Logins --")
+
 	fmt.Println("Site Name: ")
+	var siteNameGiven string
+	fmt.Scan(&siteNameGiven)
+
 	fmt.Println("Username:  ")
+	var usernameGiven string
+	fmt.Scan(&usernameGiven)
+
 	fmt.Println("Password:  ")
+	var passwordGiven string
+	fmt.Scan(&passwordGiven)
+
+	var testUser = Credential{
+		siteName:            siteNameGiven,
+		username:            usernameGiven,
+		passwordUnencrypted: passwordGiven,
+	}
+
+	siteCredentials = append(siteCredentials, testUser)
 
 	fmt.Println("---++")
 }
