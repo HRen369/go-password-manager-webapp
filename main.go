@@ -35,6 +35,23 @@ func getSite() int {
 	return choiceInt - 1
 }
 
+// Logic Functions
+func deleteLogic() {
+	var indexToDel int = getSite()
+	if indexToDel > -1 {
+		siteCredentials = append(siteCredentials[:indexToDel], siteCredentials[indexToDel+1:]...)
+	}
+}
+
+func viewLogic() {
+	choice := getSite()
+	if choice >= 0 {
+		fmt.Printf("%s\n", siteCredentials[choice].siteName)
+	} else {
+		fmt.Println("-- Not a Valid Index --")
+	}
+}
+
 // Console App Helper Functions
 func iterateCredentialsSites() {
 	for i, userCredential := range siteCredentials {
@@ -53,13 +70,7 @@ func viewLogins() {
 		fmt.Scan(&r)
 	} else {
 		iterateCredentialsSites()
-
-		choice := getSite()
-		if choice >= 0 {
-			fmt.Printf("%s\n", siteCredentials[choice].siteName)
-		} else {
-			fmt.Println("-- Not a Valid Index --")
-		}
+		viewLogic()
 	}
 }
 
@@ -103,11 +114,7 @@ func deleteLogins() {
 
 	} else {
 		iterateCredentialsSites()
-
-		var indexToDel int = getSite()
-		if indexToDel > -1 {
-			siteCredentials = append(siteCredentials[:indexToDel], siteCredentials[indexToDel+1:]...)
-		}
+		deleteLogic()
 	}
 	fmt.Println("---++")
 }
