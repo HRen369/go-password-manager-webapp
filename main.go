@@ -46,15 +46,18 @@ func iterateCredentialsSites() {
 func viewLogins() {
 	fmt.Println("-- View Logins -- ")
 
-	if len(siteCredentials) <= 0{
+	if len(siteCredentials) <= 0 {
 		fmt.Println("-- No Sites Stored --")
-	}else{
+		fmt.Printf(">  ")
+		var r string
+		fmt.Scan(&r)
+	} else {
 		iterateCredentialsSites()
 
 		choice := getSite()
-		if choice >= 0{
+		if choice >= 0 {
 			fmt.Printf("%s\n", siteCredentials[choice].siteName)
-		}else{
+		} else {
 			fmt.Println("-- Not a Valid Index --")
 		}
 	}
@@ -83,18 +86,29 @@ func addLogins() {
 
 	siteCredentials = append(siteCredentials, testUser)
 
-	fmt.Println("---++")
+	fmt.Printf(">  ")
+	var r string
+	fmt.Scan(&r)
 }
 
 func deleteLogins() {
 	fmt.Println("-- Delete Logins --")
-	viewLogins()
 
-	var indexToDel int = getSite()
-	if indexToDel > -1 {
-		siteCredentials = append(siteCredentials[:indexToDel], siteCredentials[indexToDel+1:]...)
+	if len(siteCredentials) <= 0 {
+		fmt.Println("-- No Sites Stored --")
+
+		fmt.Printf(">  ")
+		var r string
+		fmt.Scan(&r)
+
+	} else {
+		iterateCredentialsSites()
+
+		var indexToDel int = getSite()
+		if indexToDel > -1 {
+			siteCredentials = append(siteCredentials[:indexToDel], siteCredentials[indexToDel+1:]...)
+		}
 	}
-
 	fmt.Println("---++")
 }
 
