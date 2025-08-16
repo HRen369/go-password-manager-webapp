@@ -2,9 +2,27 @@ package main
 
 import "fmt"
 
+type credential struct {
+	siteName            string
+	username            string
+	passwordUnencrypted string
+}
+
+var testUser1 = credential{
+	siteName:            "Github",
+	username:            "HTest",
+	passwordUnencrypted: "ngh4rnv.e#fku",
+}
+
+siteCredentials := []credential{}
+
+
 func viewLogins() {
 	fmt.Println("-- View Logins -- ")
-	fmt.Println(("[1] Github: HTest ngh4rnv.e#fku"))
+
+	for i, userCredential := range siteCredentials {
+		fmt.Printf("[%d] %s %s %s\n", i, userCredential.siteName, userCredential.username, userCredential.passwordUnencrypted)
+	}
 }
 
 func addLogins() {
